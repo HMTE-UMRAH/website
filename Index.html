@@ -186,6 +186,188 @@ ul{ margin:0; }
 .logo-filosofi{ display:flex; gap:26px; align-items:center; flex-wrap:wrap; }
 .logo-filosofi img{ width:130px; height:130px; border-radius:50%; border:3px solid var(--gold-500); object-fit:cover; background:var(--navy-800); }
 
+/* ============ SEJARAH — BRICK WALL, HANGING LAMP & BLACKBOARD ============ */
+.sejarah-scene{
+  position:relative;
+  margin-top:40px;
+  padding:64px 4% 46px;
+  border-radius:16px;
+  overflow:hidden;
+  text-align:center;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.4) 0 3px, transparent 3px 46px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.32) 0 3px, transparent 3px 96px),
+    linear-gradient(180deg, #3c2018 0%, #2a150f 45%, #1c0e09 100%);
+  box-shadow:inset 0 0 90px rgba(0,0,0,.65), 0 20px 45px rgba(0,0,0,.55);
+}
+.sejarah-scene::after{
+  /* brick mortar offset illusion */
+  content:"";
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(0deg, transparent 0 46px, rgba(0,0,0,.28) 46px 46px), 
+             repeating-linear-gradient(90deg, transparent 0 48px, transparent 48px);
+  background-position:48px 0;
+  pointer-events:none;
+  opacity:.5;
+}
+.sejarah-lamp{
+  position:relative; z-index:3;
+  width:150px; height:64px;
+  margin:0 auto -4px;
+}
+.lamp-cord{
+  position:absolute; top:-40px; left:50%; transform:translateX(-50%);
+  width:3px; height:44px;
+  background:linear-gradient(180deg, rgba(0,0,0,0), #0b0b0b);
+}
+.lamp-shade{
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:120px; height:38px;
+  background:linear-gradient(180deg, #1a1a1a, #050505);
+  border-radius:50% 50% 46% 46% / 100% 100% 34% 34%;
+  box-shadow:0 6px 14px rgba(0,0,0,.7);
+}
+.lamp-bulb{
+  position:absolute; top:30px; left:50%; transform:translateX(-50%);
+  width:24px; height:24px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #fff8e2, #ffe19a 55%, #cf9f47 100%);
+  box-shadow:0 0 30px 12px rgba(255,210,120,.55);
+}
+.lamp-glow{
+  position:absolute; top:34px; left:50%; transform:translateX(-50%);
+  width:420px; height:260px;
+  background:radial-gradient(ellipse at top, rgba(255,214,130,.30), transparent 72%);
+  pointer-events:none; z-index:1;
+}
+.sejarah-signage{
+  position:relative; z-index:3;
+  display:inline-block;
+  margin:14px auto 30px;
+  font-weight:800;
+  font-size:1.55rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#f4e2b3;
+  text-shadow:0 2px 0 rgba(0,0,0,.6), 0 0 22px rgba(255,205,120,.45);
+}
+.sejarah-frame{
+  position:relative; z-index:2;
+  display:inline-block;
+  width:100%;
+  padding:16px;
+  background:
+    repeating-linear-gradient(100deg, rgba(0,0,0,.18) 0 3px, transparent 3px 20px),
+    linear-gradient(120deg, #8a5a30 0%, #5c3a1e 45%, #4a2f18 55%, #7a4f28 100%);
+  border-radius:8px;
+  box-shadow:0 26px 50px rgba(0,0,0,.6), inset 0 0 0 4px rgba(0,0,0,.28);
+  text-align:left;
+}
+.sejarah-board{
+  position:relative;
+  background:#14140f;
+  border-radius:4px;
+  box-shadow:inset 0 0 60px rgba(0,0,0,.75);
+  padding:70px 5% 90px;
+  overflow:hidden;
+}
+.sejarah-board::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(650px 320px at 50% 0%, rgba(255,214,140,.14), transparent 72%);
+  pointer-events:none; z-index:0;
+}
+#sejarahConnector{
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; z-index:1;
+}
+.sejarah-pin-item{
+  position:relative; z-index:2;
+  display:flex;
+  margin-bottom:-26px;
+}
+.sejarah-pin-item.align-left{ justify-content:flex-start; }
+.sejarah-pin-item.align-right{ justify-content:flex-end; margin-top:64px; }
+
+.polaroid-case{
+  width:225px;
+  background:#f2ecdd;
+  padding:14px 14px 0;
+  border-radius:3px;
+  box-shadow:0 16px 28px rgba(0,0,0,.55);
+  transform:rotate(var(--rot,-2deg));
+  transition:transform .2s ease;
+}
+.sejarah-pin-item:nth-child(3n+1) .polaroid-case{ --rot:-3deg; }
+.sejarah-pin-item:nth-child(3n+2) .polaroid-case{ --rot:2.5deg; }
+.sejarah-pin-item:nth-child(3n)  .polaroid-case{ --rot:-1.5deg; }
+.polaroid-case:hover{ transform:rotate(0deg) scale(1.03); }
+
+.pushpin-dot{
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  width:22px; height:22px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #ff9a94, #b3231f);
+  box-shadow:0 3px 6px rgba(0,0,0,.6), inset 0 -2px 3px rgba(0,0,0,.35);
+  z-index:3;
+}
+.sejarah-pin-item.is-vakum .pushpin-dot{
+  background:radial-gradient(circle at 30% 30%, #9aa3b5, #4a5568);
+}
+
+.case-photo{
+  width:100%; aspect-ratio:1/1.1;
+  background:#050505; overflow:hidden; border-radius:2px;
+  filter:brightness(.4) contrast(1.15) saturate(.7);
+}
+.case-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.case-tag{
+  margin:14px -6px 0;
+  background:#d9c9a1;
+  border:1px solid rgba(0,0,0,.15);
+  padding:10px 8px 20px;
+  text-align:center;
+  color:#2c1f13;
+}
+.case-tag strong{
+  display:block;
+  font-family:'Caveat', cursive;
+  font-weight:700;
+  font-size:1.3rem;
+  line-height:1.1;
+}
+.case-tag small{
+  display:block;
+  font-family:"Segoe UI", Arial, sans-serif;
+  font-size:.68rem; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:#6b5636; margin-top:4px;
+}
+.sejarah-pin-item.is-vakum .case-tag{ background:#c9a8a1; }
+.sejarah-pin-item.is-vakum .case-tag small{ color:#7a2f2a; }
+
+.case-desc{
+  max-width:225px;
+  color:#e8dcc0;
+  font-size:.78rem;
+  line-height:1.6;
+  margin-top:12px;
+  text-align:center;
+  opacity:.85;
+}
+
+@media (max-width:760px){
+  .sejarah-pin-item.align-right{ margin-top:60px; }
+  .polaroid-case{ width:150px; }
+  .case-desc{ max-width:150px; font-size:.72rem; }
+  .sejarah-scene{ padding:44px 2% 28px; }
+  .sejarah-frame{ padding:10px; }
+  .sejarah-board{ padding:60px 2% 80px; }
+  .sejarah-lamp{ width:110px; height:50px; }
+  .lamp-shade{ width:90px; height:30px; }
+  .lamp-glow{ width:300px; height:200px; }
+  .sejarah-signage{ font-size:1.15rem; letter-spacing:.08em; }
+}
+
 /* ============ STRUKTUR PREVIEW ============ */
 .struktur-preview{
   display:flex; flex-direction:column; align-items:center; gap:26px;
@@ -380,16 +562,8 @@ ul{ margin:0; }
   .berita-item-photo{ flex:none; width:100%; height:220px; }
 }
 
-/* ============ GALERI TABS ============ */
-.galeri-tabs{ display:flex; justify-content:center; gap:14px; margin-bottom:36px; }
-.galeri-tab-btn{
-  background:transparent; border:1.5px solid var(--gold-500);
-  color:var(--gold-400); padding:10px 28px; border-radius:999px;
-  font-weight:700; cursor:pointer; transition:all .2s ease;
-}
-.galeri-tab-btn.active{ background:var(--gold-500); color:var(--navy-950); }
-.galeri-panel{ display:none; }
-.galeri-panel.active{ display:block; }
+/* ============ GALERI ============ */
+.galeri-panel{ display:block; }
 
 /* ============ GALERI POLAROID ============ */
 .polaroid-grid{
@@ -840,7 +1014,22 @@ ul{ margin:0; }
       <div class="tab-panels">
         <div class="tab-panel active" id="tab-sejarah">
           <h3>Sejarah</h3>
-          <p>HMTE UMRAH didirikan di Tanjungpinang pada 23 November 2011. HMTE UMRAH berkedudukan di Tanjungpinang dan bersekretariat di Fakultas Teknik dan Teknologi Kemaritiman kampus Universitas Maritim Raja Ali Haji Senggarang.  HMTE merupakan sebuah organisasi yang tidak hanya berfokus pada pengembangan akademis dan karier anggotanya, tetapi juga pada terciptanya rasa kebersamaan dan kekeluargaan yang mendalam antar sesama mahasiswa Teknik Elektro.</p>
+          <p>HMTE UMRAH didirikan di Tanjungpinang pada 23 November 2011. HMTE UMRAH berkedudukan di Tanjungpinang dan bersekretariat di Fakultas Teknik dan Teknologi Kemaritiman kampus Universitas Maritim Raja Ali Haji Senggarang. HMTE merupakan sebuah organisasi yang tidak hanya berfokus pada pengembangan akademis dan karier anggotanya, tetapi juga pada terciptanya rasa kebersamaan dan kekeluargaan yang mendalam antar sesama mahasiswa Teknik Elektro. Sebelum berdiri sendiri, kegiatan kemahasiswaan Teknik Elektro sempat bernaung di bawah BEM FT (Kampus 1, Batam) dan Himpunan Mahasiswa Jurusan (Kampus 1, Tanjungpinang), sebelum akhirnya HMTE resmi terbentuk sebagai himpunan tersendiri.</p>
+
+          <div class="sejarah-scene">
+            <div class="sejarah-lamp">
+              <span class="lamp-cord"></span>
+              <span class="lamp-shade"></span>
+              <span class="lamp-bulb"></span>
+            </div>
+            <span class="lamp-glow"></span>
+            <h4 class="sejarah-signage">Sejarah Kepengurusan HMTE</h4>
+            <div class="sejarah-frame">
+              <div class="sejarah-board" id="sejarahTimeline">
+                <svg id="sejarahConnector"></svg>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab-panel" id="tab-visi">
           <h3>Visi</h3>
@@ -940,7 +1129,7 @@ ul{ margin:0; }
             </div>
             <div class="org-level level-4">
               <div class="org-box" data-id="divisi-akademik">DIVISI PENGEMBANGAN AKADEMIK DAN PROFESI</div>
-              <div class="org-box" data-id="divisi-sdm">DIVISI PENGEMBANGAN SUMBER DAYA MANUSIA</div>
+              <div class="org-box" data-id="divisi-sdm">DIVISI PENGEMBANGAN SUMBER DAYA MAHASISWA</div>
               <div class="org-box" data-id="divisi-relasi">DIVISI RELASI DAN KEMITRAAN</div>
               <div class="org-box" data-id="divisi-abdisos">DIVISI ABDI SOSIAL DAN MASYARAKAT</div>
               <div class="org-box" data-id="divisi-hubinternal">DIVISI HUBUNGAN INTERNAL DAN KESEJAHTERAAN ANGGOTA</div>
@@ -1041,21 +1230,10 @@ ul{ margin:0; }
     <div class="section-heading">
       <h2>GALERI</h2>
       <div class="divider"><span></span><i></i><span></span></div>
-      <p>Dokumentasi foto dan video kegiatan HMTE UMRAH.</p>
-    </div>
-    <div class="galeri-tabs">
-      <button class="galeri-tab-btn active" data-galeri="foto">Foto</button>
-      <button class="galeri-tab-btn" data-galeri="video">Video</button>
+      <p>Dokumentasi foto kegiatan HMTE UMRAH.</p>
     </div>
     <div class="galeri-panel active" id="galeri-foto">
       <div class="polaroid-grid" id="polaroidGrid"></div>
-    </div>
-    <div class="galeri-panel" id="galeri-video">
-      <div class="empty-state">
-        <div class="empty-icon">🎬</div>
-        <strong>Belum ada video</strong>
-        <p style="margin:0;">Galeri video belum tersedia. Dokumentasi kegiatan akan ditambahkan di sini.</p>
-      </div>
     </div>
   </section>
 
@@ -1174,19 +1352,6 @@ tabBtns.forEach(btn => {
   });
 });
 
-// ---------- Galeri tabs ----------
-const galeriBtns = document.querySelectorAll(".galeri-tab-btn");
-const galeriPanels = document.querySelectorAll(".galeri-panel");
-galeriBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    galeriBtns.forEach(b => b.classList.remove("active"));
-    galeriPanels.forEach(p => p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("galeri-" + btn.dataset.galeri).classList.add("active");
-  });
-});
-
-
 /* ============ STRUKTUR KEPENGURUSAN (data & interaksi) ============ */
 //    Ganti "foto" dengan path gambar asli (mis. "foto/ketua.jpg")
 //    Placeholder di bawah otomatis membuat avatar inisial.
@@ -1196,7 +1361,7 @@ const dataJabatan = {
     tipe: "single",
     jabatan: "Ketua Umum",
     nama: "Aidil Fitra",
-    foto: "foto/ketum.jpg",
+    foto: "foto2/ketum.jpg",
     tugas: [
       "Memimpin dan bertanggung jawab penuh atas jalannya organisasi HMTE UMRAH.",
       "Menetapkan kebijakan umum dan arah strategis organisasi.",
@@ -1209,7 +1374,7 @@ const dataJabatan = {
     tipe: "single",
     jabatan: "Wakil Ketua Umum",
     nama: "Iqba Hafizal",
-    foto: "foto/waketum.jpg",
+    foto: "foto2/waketum.jpg",
     tugas: [
       "Membantu Ketua Umum dalam menjalankan roda organisasi.",
       "Menggantikan tugas Ketua Umum apabila berhalangan hadir.",
@@ -1221,7 +1386,7 @@ const dataJabatan = {
     tipe: "single",
     jabatan: "Sekretaris Umum",
     nama: "Desi Khairunnisa",
-    foto: "foto/sekum.jpg",
+    foto: "foto2/sekum.jpg",
     tugas: [
       "Mengelola administrasi dan kesekretariatan organisasi.",
       "Membuat serta mengarsipkan surat-menyurat resmi.",
@@ -1233,7 +1398,7 @@ const dataJabatan = {
     tipe: "single",
     jabatan: "Bendahara Umum",
     nama: "Sovi Alami",
-    foto: "foto/bendum.jpg",
+    foto: "foto2/bendum.jpg",
     tugas: [
       "Mengelola keuangan organisasi secara transparan.",
       "Menyusun laporan keuangan berkala.",
@@ -1250,9 +1415,9 @@ const dataJabatan = {
       "Membuat desain visual untuk kebutuhan kegiatan dan promosi.",
       "Mendokumentasikan seluruh rangkaian kegiatan HMTE."
     ],
-    kadiv: { nama: "Alton Jawamata", foto: "foto/PID/alton.jpg" },
+    kadiv: { nama: "Alton Jawamata", foto: "foto2/PID/alton.jpg" },
     anggota: [
-      { nama: "Wegi Bimaisa", foto: "foto/PID/wegi.jpg" },
+      { nama: "Wegi Bimaisa", foto: "foto2/PID/wegi.jpg" },
       { nama: "Siti Khadijah Nasution", foto: "" },
     ]
   },
@@ -1266,8 +1431,8 @@ const dataJabatan = {
     ],
     kadiv: { nama: "Ferdi Riski Ramdani", foto: "" },
     anggota: [
-      { nama: "Rani Novita", foto: "foto/KWU/rani.jpg" },
-      { nama: "Ahmad Zikri", foto: "foto/KWU/zikri.jpg" }
+      { nama: "Rani Novita", foto: "foto2/KWU/rani.jpg" },
+      { nama: "Ahmad Zikri", foto: "foto2/KWU/zikri.jpg" }
     ]
   },
   "divisi-akademik": {
@@ -1278,26 +1443,26 @@ const dataJabatan = {
       "Memfasilitasi pengembangan kompetensi profesi anggota.",
       "Menyelenggarakan pelatihan, seminar, dan diskusi keilmuan."
     ],
-    kadiv: { nama: "Tsania Nuraini Putri", foto: "foto/PAP/tsan.jpg" },
+    kadiv: { nama: "Tsania Nuraini Putri", foto: "foto2/PAP/tsan.jpg" },
     anggota: [
-      { nama: "Anisha Rahmi", foto: "foto/PAP/rahmi.jpg" },
-      { nama: "Disyan Gilbert S.", foto: "foto/PAP/disyan.jpg" }
+      { nama: "Anisha Rahmi", foto: "foto2/PAP/rahmi.jpg" },
+      { nama: "Disyan Gilbert S.", foto: "foto2/PAP/disyan.jpg" }
     ]
   },
   "divisi-sdm": {
     tipe: "divisi",
-    jabatan: "Divisi Pengembangan Sumber Daya Manusia",
+    jabatan: "Divisi Pengembangan Sumber Daya Mahasiswa",
     tugas: [
       "Membina dan mengembangkan kualitas anggota organisasi.",
       "Merancang program kaderisasi dan pelatihan kepemimpinan.",
       "Menjaga soliditas dan kekompakan antar anggota."
     ],
-    kadiv: { nama: "M. Raisha Mirza Afwan", foto: "foto/PSDM/mirza.jpg" },
+    kadiv: { nama: "M. Raisha Mirza Afwan", foto: "foto2/PSDM/mirza.jpg" },
     anggota: [
-      { nama: "Rizky Kurniawan", foto: "foto/PSDM/kii.jpg" },
-      { nama: "Muhammad Rizkie", foto: "foto/PSDM/kie.jpg" },
-      { nama: "Daniel Saputra Laia", foto: "foto/PSDM/daniel.jpg" },
-         { nama: "Sativa Crismalia Pandiangan", foto: "foto/PSDM/tiva.jpg" },
+      { nama: "Rizky Kurniawan", foto: "foto2/PSDM/kii.jpg" },
+      { nama: "Muhammad Rizkie", foto: "foto2/PSDM/kie.jpg" },
+      { nama: "Daniel Saputra Laia", foto: "foto2/PSDM/daniel.jpg" },
+         { nama: "Sativa Crismalia Pandiangan", foto: "foto2/PSDM/tiva.jpg" },
     ]
   },
   "divisi-relasi": {
@@ -1308,9 +1473,9 @@ const dataJabatan = {
       "Mencari peluang kerja sama dan sponsorship kegiatan.",
       "Membangun jejaring dengan organisasi maupun instansi lain."
     ],
-    kadiv: { nama: "Choky Dwi Andika Napitupulu", foto: "foto/RKM/chocky.jpg" },
+    kadiv: { nama: "Choky Dwi Andika Napitupulu", foto: "foto2/RKM/chocky.jpg" },
     anggota: [
-      { nama: "Ocsa Tigitri", foto: "foto/RKM/ocsa.jpg" }
+      { nama: "Ocsa Tigitri", foto: "foto2/RKM/ocsa.jpg" }
     ]
   },
   "divisi-abdisos": {
@@ -1664,7 +1829,7 @@ const programKerjaData = {
     deskripsi: "Membina kualitas anggota melalui program kaderisasi dan pelatihan kepemimpinan.",
     kegiatan: [
       { nama: "Pengukuhan Baju Pengurus HMTE", pj: "Muhammad Rizkie", tujuan: "Mengesahkan identitas sebagai pengurus HMTE sekaligus tanda simbolis keanggotaan resmi.", waktu: "Maret", status: "berjalan" },
-      { nama: "PKKMB Prodi Teknik Elektro 2026", pj: "Muhammad Raisha Mirza Afwan", tujuan: "Menyambut mahasiswa baru dan membekali pengetahuan dasar kehidupan kampus.", waktu: "Kondisional (mengikuti jadwal kampus)", status: "coming" },
+      { nama: "PKKMB Prodi Teknik Elektro 2026", pj: "Muhammad Raisha Mirza Afwan", tujuan: "Menyambut mahasiswa baru dan membekali pengetahuan dasar kehidupan kampus.", waktu: "Kondisional (mengikuti jadwal kampus)", status: "berjalan" },
       { nama: "LDK (Latihan Dasar Kepemimpinan)", pj: "Rizky Kurniawan", tujuan: "Mengasah potensi individu, kerja sama tim, dan karakter kepemimpinan.", waktu: "Kondisional", status: "coming" },
       { nama: "Wadah Pemilihan Ketua Angkatan 26", pj: "Daniel Saputra Laia", tujuan: "Memiliki ketua angkatan sebagai perwakilan resmi dalam menyampaikan aspirasi.", waktu: "Kondisional", status: "coming" },
       { nama: "Pengukuhan Baju Anggota Angkatan 26", pj: "Muhammad Rizkie", tujuan: "Memperkuat identitas, kebersamaan, dan rasa bangga sebagai mahasiswa Teknik Elektro.", waktu: "Kondisional", status: "coming" },
@@ -1677,7 +1842,7 @@ const programKerjaData = {
     kegiatan: [
       { nama: "Study to Action", pj: "Anisha Rahmi", tujuan: "Menghubungkan pemahaman teori dengan praktik nyata melalui mini project, simulasi, dan studi kasus.", waktu: "April - Oktober (kecuali Juli-Agustus)", status: "berjalan" },
       { nama: "SPARK (Simulation & Programming for Advanced Real-time Kreativity)", pj: "Tsania Nuraini Putri", tujuan: "Menumbuhkan kreativitas dan kemampuan teknis dalam simulasi dan pemrograman real-time.", waktu: "November", status: "coming" },
-      { nama: "Peer Mentoring", pj: "Disyan Gilbert Simbolon", tujuan: "Membantu penyesuaian awal perkuliahan serta membangun karakter dan literasi akademik.", waktu: "Agustus", status: "coming" }
+      { nama: "Peer Mentoring", pj: "Disyan Gilbert Simbolon", tujuan: "Membantu penyesuaian awal perkuliahan serta membangun karakter dan literasi akademik.", waktu: "Agustus", status: "berjalan" }
     ]
   },
   "divisi-relasi": {
@@ -1794,7 +1959,7 @@ const galeriFotoData = [
   // Contoh (hapus tanda // di bawah & isi datanya kalau mau dipakai):
   { src: "foto/galeri/pelantikan.jpg", caption: "Pelantikan Ormawa" },
   { src: "foto/galeri/fg.JPG", caption: "Family Gathering : Awal Kepengurusan" },
-  { src: "foto/galeri/Bajupengurrus.jpg", caption: "Pengukuhan Baju Pengurus" },
+  { src: "foto/galeri/bajupengurrus.jpg", caption: "Pengukuhan Baju Pengurus" },
   { src: "foto/galeri/raker.jpg", caption: "Rapat Kerja Kepengurusan HMTE 2026" },
   { src: "foto/galeri/takjil.jpeg", caption: "Takjil On The Road" },
   { src: "foto/galeri/sma6.jpeg", caption: "Electro For Future Generation (SMAN 7 Tanjungpinang)" },
@@ -1806,6 +1971,8 @@ const galeriFotoData = [
   { src: "foto/galeri/jualan.jpeg", caption: "HMTE Business Development" },
   { src: "foto/galeri/plts.jpeg", caption: "Kunjungan Company" },
   { src: "foto/galeri/hmtp.jpg", caption: "Alliance Ormawa With HMTP" },
+  { src: "Elektropeduli.png", caption: "Elektro Peduli" },
+  { src: "neo.png", caption: "PKKMB Prodi 2026 (Neotro)" },
 ];
 
 const polaroidGridEl = document.getElementById("polaroidGrid");
@@ -1950,6 +2117,182 @@ function renderBeritaFeed(kategoriAktif){
 
 renderBeritaTabs();
 renderBeritaFeed("Semua");
+
+
+/* ============ DATA SEJARAH / LINIMASA HMTE ============ */
+// Cara nambah/ubah foto Ketua Umum: taruh fotonya di folder Sejarah/,
+// lalu isi nama filenya di "foto" pada objek "ketua" di bawah.
+//
+// Cara nambah foto untuk periode yang TIDAK punya Ketua Umum
+// (contoh: periode Vakum, atau periode Pergantian Logo):
+// taruh fotonya di folder Sejarah/, lalu tambahkan/isi baris "foto: ..."
+// langsung di objek periode tersebut (bukan di dalam "ketua").
+//
+// Kalau foto belum ada / linknya salah, otomatis akan muncul bulatan
+// berisi inisial nama sebagai gantinya (tidak akan tampil kosong/rusak).
+const sejarahData = [
+  {
+    periode: "23 November 2011",
+    judul: "Tokoh Pencetus & Hari Lahir HMTE",
+    ketua: [
+      { nama: "HMTE UMRAH", foto: "Sejarah/logo1.png" },
+    ],
+    desc: "HMTE UMRAH resmi didirikan di Tanjungpinang, dirintis oleh Andika Putra dan Wingky Fernando (angkatan 2010) sebagai tokoh pencetus berdirinya himpunan."
+  },
+  {
+    periode: "Periode 2011 - 2012 & Periode 2012 - 2013",
+    ketua: { nama: "Andika Putra", foto: "Sejarah/pertama.png" },
+    desc: "Kepengurusan perdana HMTE UMRAH resmi terbentuk dengan Andika Putra sebagai Ketua Umum."
+  },
+  {
+    periode: "Periode 2013 - 2014",
+    ketua: { nama: "Karyano Efiandi", foto: "Sejarah/kedua.png" }
+  },
+  {
+    periode: "Periode 2014 - 2015",
+    ketua: { nama: "Evi Zamuri", foto: "Sejarah/ketiga.png" }
+  },
+  {
+    periode: "Periode 2015 - 2016",
+    ketua: { nama: "Arya Ramadiansyah", foto: "Sejarah/keempat.png" }
+  },
+  {
+    periode: "Periode 2016 - 2017",
+    vakum: true,
+    judul: "Vakum",
+    foto: "Sejarah/vakum.png", // <-- taruh foto dokumentasi masa vakum di sini (kalau ada)
+    desc: "HMTE UMRAH sempat mengalami masa kevakuman, tidak ada kepengurusan yang aktif berjalan pada periode ini."
+  },
+  {
+    periode: "2017",
+    judul: "Kebangkitan & Pergantian Logo",
+    foto: "logo.jpg", // <-- taruh foto logo baru / momen pergantian logo di sini
+    list: [
+      "Tidak ada berita acara dari rangkaian Mubes-Mubes sebelumnya",
+      "Menyusul kevakuman pada periode sebelumnya",
+      "Penambahan konsentrasi D0 Teknik Elektro"
+    ],
+    desc: "Pada tahun ini logo HMTE juga diperbarui dari logo lama menjadi logo HMTE UMRAH yang digunakan hingga sekarang."
+  },
+  {
+    periode: "Periode 2017 - 2018",
+    ketua: { nama: "Andi Handrian, S.T", foto: "Sejarah/kelima.png" }
+  },
+  {
+    periode: "Periode 2018 - 2019",
+    ketua: { nama: "Chandra Irawan, S.T", foto: "Sejarah/keenam.png" }
+  },
+  {
+    periode: "Periode 2019 - 2020",
+    ketua: { nama: "Lukman Hamdani", foto: "Sejarah/ketujuh.png" }
+  },
+  {
+    periode: "Periode 2020 - 2021",
+    ketua: { nama: "Afdal Hadi", foto: "Sejarah/kelapan.png" }
+  },
+  {
+    periode: "Periode 2021 - 2022",
+    ketua: { nama: "Dinun Kholis Islam", foto: "Sejarah/ke9.png" }
+  },
+  {
+    periode: "Periode 2022 - 2023",
+    ketua: { nama: "Rama Dicsyah Kabra", foto: "Sejarah/ke10.png" }
+  },
+  {
+    periode: "Periode 2023 - 2024",
+    ketua: { nama: "Aidil Mersa Fatihah", foto: "Sejarah/ke11.png" }
+  },
+  {
+    periode: "Periode 2024 - 2025",
+    ketua: { nama: "Muhammad Aditya Rahmadinu", foto: "Sejarah/ke12.png" }
+  },
+  {
+    periode: "Periode 2025 - 2026",
+    ketua: { nama: "Aidil Fitra", foto: "Sejarah/ke13.png" },
+    desc: "Kepengurusan HMTE UMRAH yang aktif berjalan saat ini."
+  },
+  {
+    periode: "Periode Selanjutnya",
+    judul: "Menanti Estafet Kepemimpinan",
+    desc: "Nama Ketua Umum dan jajaran pengurus periode berikutnya akan diperbarui di sini seiring bergantinya kepengurusan HMTE UMRAH."
+  }
+];
+
+function sejarahInisial(nama){
+  return nama.split(" ").filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+}
+
+function renderSejarahTimeline(){
+  const board = document.getElementById("sejarahTimeline");
+  if(!board) return;
+
+  // svg tetap dipertahankan, item lain dibuang dulu
+  board.querySelectorAll(".sejarah-pin-item").forEach(el => el.remove());
+
+  sejarahData.forEach((item, i) => {
+    const orang = item.ketua ? (Array.isArray(item.ketua) ? item.ketua[0] : item.ketua) : null;
+
+    const wrap = document.createElement("div");
+    wrap.className = "sejarah-pin-item " + (i % 2 === 0 ? "align-left" : "align-right") + (item.vakum ? " is-vakum" : "");
+
+    const foto = orang
+      ? `<img src="${orang.foto}" alt="${orang.nama}" onerror="this.src='${avatarPlaceholder(orang.nama)}'">`
+      : item.foto
+        ? `<img src="${item.foto}" alt="${item.judul || item.periode}" onerror="this.src='${avatarPlaceholder(item.judul || '?')}'">`
+        : `<img src="${avatarPlaceholder('?')}" alt="Belum ada foto">`;
+
+    const nama = orang ? orang.nama : (item.judul || "Belum Diketahui");
+
+    wrap.innerHTML = `
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <div class="polaroid-case">
+          <span class="pushpin-dot"></span>
+          <div class="case-photo">${foto}</div>
+          <div class="case-tag">
+            <strong>${nama}</strong>
+            <small>${item.periode}</small>
+          </div>
+        </div>
+        ${item.desc ? `<p class="case-desc">${item.desc}</p>` : ""}
+      </div>`;
+
+    board.appendChild(wrap);
+  });
+
+  requestAnimationFrame(gambarBenangSejarah);
+}
+
+function gambarBenangSejarah(){
+  const board = document.getElementById("sejarahTimeline");
+  const svg = document.getElementById("sejarahConnector");
+  if(!board || !svg) return;
+
+  const rect = board.getBoundingClientRect();
+  svg.setAttribute("width", rect.width);
+  svg.setAttribute("height", rect.height);
+  svg.innerHTML = "";
+
+  const pins = board.querySelectorAll(".pushpin-dot");
+  pins.forEach((pin, i) => {
+    if(i === pins.length - 1) return;
+    const a = pin.getBoundingClientRect();
+    const b = pins[i + 1].getBoundingClientRect();
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", a.left + a.width / 2 - rect.left);
+    line.setAttribute("y1", a.top + a.height / 2 - rect.top);
+    line.setAttribute("x2", b.left + b.width / 2 - rect.left);
+    line.setAttribute("y2", b.top + b.height / 2 - rect.top);
+    line.setAttribute("stroke", "#b3231f");
+    line.setAttribute("stroke-width", "2.5");
+    line.setAttribute("stroke-linecap", "round");
+    svg.appendChild(line);
+  });
+}
+renderSejarahTimeline();
+window.addEventListener("resize", () => {
+  clearTimeout(window._sejarahResizeTimer);
+  window._sejarahResizeTimer = setTimeout(gambarBenangSejarah, 150);
+});
 
 </script>
 </body>
